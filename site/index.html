@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fifteen Minutes</title>
+<meta name="description" content="An open instrument for finding, valuing, and operating 250 kW batteries at Massachusetts industrial sites. Real load data, real 2026 tariffs, audited. Built by Aditya Swaroop for Powertown.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='18' r='13' fill='%23f2f4f1' stroke='%231f2b33' stroke-width='2'/%3E%3Cline x1='16' y1='18' x2='7' y2='10' stroke='%231f2b33' stroke-width='2.4' stroke-linecap='round'/%3E%3Cline x1='16' y1='18' x2='24' y2='9' stroke='%23cf1f2e' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+</head>
+<body>
+<button class="ghost theme-toggle" id="theme" type="button" aria-label="Switch color theme">Dark</button>
+
+<div class="frame">
+  <header class="hero">
+    <div class="hero-text">
+      <h1><span class="line">The most</span><span class="line">expensive fifteen</span><span class="line">minutes in a factory</span></h1>
+      <p class="lede">Every month a utility meter keeps one number: the building's highest 15-minute demand. For a Massachusetts manufacturer that single interval can set a third of the bill or more. A Powerblock exists to lower it. I built an instrument that finds the sites where it can, prices each one under real 2026 tariffs, and runs the battery without knowing the future.</p>
+      <p class="byline">Built by <strong>Aditya Swaroop</strong> for Powertown's Machine Learning Engineer intern application, October 2026. Everything below runs in your browser on public data; the code and every number's source are linked at the end.</p>
+    </div>
+    <figure class="meter" id="meter" aria-label="Animated demand meter replaying one month of a real customer's load">
+      <svg id="dial" viewBox="0 0 400 250" role="img" aria-labelledby="dialTitle"><title id="dialTitle">Demand meter</title></svg>
+      <div class="readouts">
+        <div class="readout peak"><div class="k" id="peakLabel">Billed demand this month</div><div class="v" id="peakValue">–</div></div>
+        <div class="readout saved"><div class="k" id="savedLabel">Demand charge</div><div class="v" id="savedValue">–</div></div>
+      </div>
+      <div class="meter-actions">
+        <button type="button" id="replayBase">Replay the month</button>
+        <button type="button" class="ghost" id="replayBlock">Replay with a Powerblock</button>
+      </div>
+      <figcaption id="meterCaption">The black needle is the building's 15-minute demand. The red drag pointer only moves up; it is what the utility bills.</figcaption>
+    </figure>
+  </header>
+</div>
+
+<main>
+  <!-- EVALUATE ------------------------------------------------------------------------ -->
+  <section class="frame section" id="evaluate" aria-labelledby="h-evaluate">
+    <div class="rail"><h2 id="h-evaluate">Evaluate</h2><p>What is one Powerblock worth at this site?</p></div>
+    <div class="body">
+      <p class="kicker" id="evalKicker"></p>
+      <p>Pick a site, or drop in your own interval data. The engine replays a full year at 15-minute resolution against Powertown's published Powerblock spec (250 kW, 522 kWh, LFP) and the tariff's exact billing rule, then prices the bill with and without the battery. Nothing leaves your browser.</p>
+
+      <div class="instrument" id="evalInstrument">
+        <p class="title" id="evalTitle">One year, one battery</p>
+        <p class="sub" id="evalSub"></p>
+        <div class="controls">
+          <div class="grow"><label for="sitePick">Site</label><select id="sitePick"></select></div>
+          <div><label id="tariffLbl">Tariff</label><div class="segmented" id="tariffPick" role="group" aria-labelledby="tariffLbl"></div></div>
+          <div><label id="policyLbl">Battery control</label><div class="segmented" id="policyPick" role="group" aria-labelledby="policyLbl"></div></div>
+        </div>
+        <div class="dropzone" id="drop">
+          <label for="fileIn" style="display:inline;color:inherit;font-size:inherit">Use your own data:</label>
+          <input type="file" id="fileIn" accept=".csv,.txt">
+          <span class="note">A CSV of timestamps and 15-minute (or hourly) kWh or kW readings. Green Button exports work. The file is read in your browser and never uploaded.</span>
+          <div class="msg" id="fileMsg" role="status"></div>
+        </div>
+        <div class="stats" id="evalStats"></div>
+        <div class="controls">
+          <div><label for="monthPick">Month</label><select id="monthPick"></select></div>
+          <p class="note" id="monthNote" style="margin:0 0 .3rem"></p>
+        </div>
+        <div class="chart" id="monthChart"></div>
+        <div class="legend" id="monthLegend"></div>
+        <div class="chart" id="yearChart"></div>
+        <details class="table-wrap"><summary class="ui" style="cursor:pointer;font-size:.9rem">Monthly bill detail</summary><div id="billTable"></div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIND ----------------------------------------------------------------------------- -->
+  <section class="frame section" id="find" aria-labelledby="h-find">
+    <div class="rail"><h2 id="h-find">Find</h2><p>Which Massachusetts buildings are worth a visit?</p></div>
+    <div class="body" id="findBody">
+      <p class="kicker" id="findKicker"></p>
+      <div id="findProse"></div>
+      <div class="instrument">
+        <p class="title" id="stripTitle">Annual value of one Powerblock, by building type</p>
+        <p class="sub" id="stripSub"></p>
+        <div class="controls"><div><label id="stripTariffLbl">Tariff</label><div class="segmented" id="stripTariff" role="group" aria-labelledby="stripTariffLbl"></div></div></div>
+        <div class="chart" id="stripChart"></div>
+      </div>
+      <div class="instrument">
+        <p class="title" id="sliceTitle"></p>
+        <p class="sub" id="sliceSub"></p>
+        <div class="chart" id="sliceChart"></div>
+        <div class="legend"><span><i style="background:var(--ink);height:8px;width:8px;border-radius:50%;opacity:.35"></i>Simulated Massachusetts building</span><span><i style="background:none;border:1.5px solid var(--ink);height:8px;width:8px;border-radius:50%"></i>Metered site</span></div>
+      </div>
+      <div id="findProse2"></div>
+      <div class="instrument" id="stackInstrument">
+        <p class="title" id="stackTitle"></p>
+        <p class="sub" id="stackSub"></p>
+        <div class="chart" id="stackChart"></div>
+        <div class="legend" id="stackLegend"></div>
+      </div>
+      <div id="findProse3"></div>
+      <div class="instrument" id="screener">
+        <p class="title">Screen a prospect from twelve bills</p>
+        <p class="sub" id="screenSub"></p>
+        <div class="controls">
+          <div class="grow"><label for="billPaste">Monthly peak kW and kWh, one month per line (e.g. "612, 198000")</label>
+            <textarea id="billPaste" rows="6" style="width:100%;font-family:var(--display);font-size:.9rem;padding:.5rem;border:1px solid var(--rule);border-radius:6px;background:var(--panel);color:var(--ink)"></textarea></div>
+          <div><label id="screenTariffLbl">Tariff</label><div class="segmented" id="screenTariff" role="group" aria-labelledby="screenTariffLbl"></div>
+            <div style="margin-top:.75rem"><button type="button" id="screenRun">Estimate value</button> <button type="button" class="ghost" id="screenExample">Load an example</button></div></div>
+        </div>
+        <div class="msg" id="screenMsg" role="status"></div>
+        <div class="stats" id="screenStats"></div>
+        <div class="table-wrap" id="screenTable"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPERATE -------------------------------------------------------------------------- -->
+  <section class="frame section" id="operate" aria-labelledby="h-operate">
+    <div class="rail"><h2 id="h-operate">Operate</h2><p>How much of that value survives not knowing the future?</p></div>
+    <div class="body" id="operateBody">
+      <p class="kicker" id="opKicker"></p>
+      <div id="opProse"></div>
+      <div class="instrument">
+        <p class="title" id="opTitle"></p>
+        <p class="sub" id="opSub"></p>
+        <div class="chart" id="opChart"></div>
+      </div>
+      <div id="opProse2"></div>
+      <div class="instrument">
+        <p class="title" id="opSiteTitle"></p>
+        <p class="sub" id="opSiteSub"></p>
+        <div class="chart" id="opSiteChart"></div>
+        <div class="legend" id="opSiteLegend"></div>
+      </div>
+      <div id="opProse3"></div>
+    </div>
+  </section>
+
+  <!-- AUDIT ---------------------------------------------------------------------------- -->
+  <section class="frame section" id="audit" aria-labelledby="h-audit">
+    <div class="rail"><h2 id="h-audit">Audit</h2><p>How I tried to break my own numbers</p></div>
+    <div class="body">
+      <p class="kicker">The job post says to use AI aggressively and then audit it ruthlessly. I built this with AI coding and research agents in the loop, which is exactly why every result below had to survive a check that did not share code with the thing it was checking.</p>
+      <ul class="ledger" id="ledger"></ul>
+    </div>
+  </section>
+
+  <!-- NEXT ----------------------------------------------------------------------------- -->
+  <section class="frame section" id="next" aria-labelledby="h-next">
+    <div class="rail"><h2 id="h-next">Next</h2><p>What I would build first at Powertown</p></div>
+    <div class="body" id="nextBody"></div>
+  </section>
+</main>
+
+<div class="frame">
+  <footer>
+    <div class="cols">
+      <div><h4>Aditya Swaroop</h4><p>M.S. Computer Science, UT Dallas (Dec 2026)</p><p><a href="mailto:adityaswaroop23.rrps@gmail.com">adityaswaroop23.rrps@gmail.com</a></p><p><a href="https://github.com/as567-code">github.com/as567-code</a></p></div>
+      <div><h4>Code and data</h4><p id="repoLink"></p><p>Load data: NREL ComStock 2025 R3 (MA), UCI ElectricityLoadDiagrams 2011-2014, KIT industrial load profiles. Grid data: ISO-NE 2018 hourly.</p></div>
+      <div><h4>Not affiliated</h4><p>An independent project for a job application. Powerblock specifications are taken from powertownusa.com; all modeling choices and any errors are mine.</p></div>
+    </div>
+  </footer>
+</div>
+
+<div class="tip" id="tip" role="tooltip"></div>
+<script src="engine.js"></script>
+<script src="charts.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

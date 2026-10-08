@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+data/raw/
+data/processed/
+data/results/*.npz
+.DS_Store
+.claude/
+deliverables/
+# keep only the official tariff filings the audit tests read; other sources are cited by URL in data/tariffs/ma_tariffs_2026.json
+data/tariffs/sources/*
+!data/tariffs/sources/SHA256SUMS.txt
+!data/tariffs/sources/ngrid_ma_summary_delivery_rates_MDPU_1-26-I_eff_2026-10-01.pdf
+!data/tariffs/sources/ngrid_ma_tariff_G-3_MDPU_1591.pdf
+!data/tariffs/sources/eversource_ma_summary_delivery_rates_MDPU_1-26-F_eff_2026-09-01.pdf
+!data/tariffs/sources/eversource_ma_tariff_G-2_BOST_MDPU_15I.pdf

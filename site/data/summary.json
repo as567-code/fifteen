@@ -1,0 +1,713 @@
+{
+ "generated": "2026-10-08",
+ "repo": "https://github.com/as567-code/fifteen",
+ "battery": {
+  "power_kw": 250.0,
+  "nameplate_kwh": 522.0,
+  "usable_kwh": 469.8,
+  "round_trip": 0.9030937499999999
+ },
+ "hero": {
+  "site_id": "pt-006",
+  "month": 12,
+  "tariff": "es-g2-boston"
+ },
+ "evaluate_default": "pt-006",
+ "evaluate_kicker": "Under the two big Massachusetts rates, one Powerblock at a typical library building removes 0.4 to 1.2 months of the electric bill with perfect timing. Powertown advertises one to three. The data says that is right for the right sites in the right territory, and it is the controller that has to earn it.",
+ "featured": [
+  {
+   "id": "pt-006",
+   "label": "Portuguese C&I customer 006 (2014, metered, 500 kW peak)",
+   "group": "Metered C&I customers, Portugal (2014)"
+  },
+  {
+   "id": "pt-086",
+   "label": "Portuguese C&I customer 086 (2014, metered, 1,263 kW peak)",
+   "group": "Metered C&I customers, Portugal (2014)"
+  },
+  {
+   "id": "pt-359",
+   "label": "Portuguese C&I customer 359 (2014, metered, 301 kW peak)",
+   "group": "Metered C&I customers, Portugal (2014)"
+  },
+  {
+   "id": "pt-046",
+   "label": "Portuguese C&I customer 046 (2014, metered, 327 kW peak)",
+   "group": "Metered C&I customers, Portugal (2014)"
+  },
+  {
+   "id": "pt-242",
+   "label": "Portuguese C&I customer 242 (2014, metered, 360 kW peak)",
+   "group": "Metered C&I customers, Portugal (2014)"
+  },
+  {
+   "id": "pt-283",
+   "label": "Portuguese C&I customer 283 (2014, metered, 386 kW peak)",
+   "group": "Metered C&I customers, Portugal (2014)"
+  },
+  {
+   "id": "pt-331",
+   "label": "Portuguese C&I customer 331 (2014, metered, 427 kW peak)",
+   "group": "Metered C&I customers, Portugal (2014)"
+  },
+  {
+   "id": "pt-088",
+   "label": "Portuguese C&I customer 088 (2014, metered, 489 kW peak)",
+   "group": "Metered C&I customers, Portugal (2014)"
+  },
+  {
+   "id": "pt-274",
+   "label": "Portuguese C&I customer 274 (2014, metered, 539 kW peak)",
+   "group": "Metered C&I customers, Portugal (2014)"
+  },
+  {
+   "id": "pt-225",
+   "label": "Portuguese C&I customer 225 (2014, metered, 576 kW peak)",
+   "group": "Metered C&I customers, Portugal (2014)"
+  },
+  {
+   "id": "pt-105",
+   "label": "Portuguese C&I customer 105 (2014, metered, 646 kW peak)",
+   "group": "Metered C&I customers, Portugal (2014)"
+  },
+  {
+   "id": "pt-316",
+   "label": "Portuguese C&I customer 316 (2014, metered, 738 kW peak)",
+   "group": "Metered C&I customers, Portugal (2014)"
+  },
+  {
+   "id": "pt-205",
+   "label": "Portuguese C&I customer 205 (2014, metered, 822 kW peak)",
+   "group": "Metered C&I customers, Portugal (2014)"
+  },
+  {
+   "id": "pt-299",
+   "label": "Portuguese C&I customer 299 (2014, metered, 1,034 kW peak)",
+   "group": "Metered C&I customers, Portugal (2014)"
+  },
+  {
+   "id": "pt-294",
+   "label": "Portuguese C&I customer 294 (2014, metered, 1,184 kW peak)",
+   "group": "Metered C&I customers, Portugal (2014)"
+  },
+  {
+   "id": "pt-355",
+   "label": "Portuguese C&I customer 355 (2014, metered, 1,470 kW peak)",
+   "group": "Metered C&I customers, Portugal (2014)"
+  },
+  {
+   "id": "pt-207",
+   "label": "Portuguese C&I customer 207 (2014, metered, 1,624 kW peak)",
+   "group": "Metered C&I customers, Portugal (2014)"
+  },
+  {
+   "id": "pt-358",
+   "label": "Portuguese C&I customer 358 (2014, metered, 2,250 kW peak)",
+   "group": "Metered C&I customers, Portugal (2014)"
+  },
+  {
+   "id": "pt-276",
+   "label": "Portuguese C&I customer 276 (2014, metered, 3,490 kW peak)",
+   "group": "Metered C&I customers, Portugal (2014)"
+  },
+  {
+   "id": "pt-345",
+   "label": "Portuguese C&I customer 345 (2014, metered, 4,865 kW peak)",
+   "group": "Metered C&I customers, Portugal (2014)"
+  },
+  {
+   "id": "kit16-03",
+   "label": "German manufacturer 03 (2016, metered, 363 kW peak)",
+   "group": "Metered manufacturers, Germany (2016)"
+  },
+  {
+   "id": "kit16-14",
+   "label": "German manufacturer 14 (2016, metered, 369 kW peak)",
+   "group": "Metered manufacturers, Germany (2016)"
+  },
+  {
+   "id": "kit16-01",
+   "label": "German manufacturer 01 (2016, metered, 391 kW peak)",
+   "group": "Metered manufacturers, Germany (2016)"
+  },
+  {
+   "id": "kit16-18",
+   "label": "German manufacturer 18 (2016, metered, 523 kW peak)",
+   "group": "Metered manufacturers, Germany (2016)"
+  },
+  {
+   "id": "kit16-09",
+   "label": "German manufacturer 09 (2016, metered, 1,136 kW peak)",
+   "group": "Metered manufacturers, Germany (2016)"
+  },
+  {
+   "id": "kit16-08",
+   "label": "German manufacturer 08 (2016, metered, 1,252 kW peak)",
+   "group": "Metered manufacturers, Germany (2016)"
+  },
+  {
+   "id": "kit16-20",
+   "label": "German manufacturer 20 (2016, metered, 1,422 kW peak)",
+   "group": "Metered manufacturers, Germany (2016)"
+  },
+  {
+   "id": "kit16-07",
+   "label": "German manufacturer 07 (2016, metered, 1,524 kW peak)",
+   "group": "Metered manufacturers, Germany (2016)"
+  },
+  {
+   "id": "kit16-02",
+   "label": "German manufacturer 02 (2016, metered, 1,794 kW peak)",
+   "group": "Metered manufacturers, Germany (2016)"
+  },
+  {
+   "id": "kit16-04",
+   "label": "German manufacturer 04 (2016, metered, 2,798 kW peak)",
+   "group": "Metered manufacturers, Germany (2016)"
+  },
+  {
+   "id": "kit16-15",
+   "label": "German manufacturer 15 (2016, metered, 2,917 kW peak)",
+   "group": "Metered manufacturers, Germany (2016)"
+  },
+  {
+   "id": "kit16-13",
+   "label": "German manufacturer 13 (2016, metered, 3,698 kW peak)",
+   "group": "Metered manufacturers, Germany (2016)"
+  },
+  {
+   "id": "kit16-11",
+   "label": "German manufacturer 11 (2016, metered, 4,718 kW peak)",
+   "group": "Metered manufacturers, Germany (2016)"
+  },
+  {
+   "id": "cs-23229",
+   "label": "Big-box retail, Middlesex County (2018, simulated, 464 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-7364",
+   "label": "Big-box retail, Essex County (2018, simulated, 833 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-27682",
+   "label": "Big-box retail, Hampden County (2018, simulated, 1,191 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-64846",
+   "label": "Grocery store, Bristol County (2018, simulated, 564 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-71550",
+   "label": "Grocery store, Bristol County (2018, simulated, 865 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-31464",
+   "label": "Grocery store, Hampden County (2018, simulated, 661 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-81462",
+   "label": "Hospital, Essex County (2018, simulated, 435 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-89993",
+   "label": "Hospital, Essex County (2018, simulated, 2,468 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-89995",
+   "label": "Hospital, Norfolk County (2018, simulated, 1,433 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-21389",
+   "label": "Hotel, Suffolk County (2018, simulated, 385 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-62404",
+   "label": "Hotel, Norfolk County (2018, simulated, 662 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-65221",
+   "label": "Hotel, Suffolk County (2018, simulated, 1,255 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-60050",
+   "label": "Large office, Middlesex County (2018, simulated, 839 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-60056",
+   "label": "Large office, Middlesex County (2018, simulated, 543 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-53986",
+   "label": "Large office, Suffolk County (2018, simulated, 493 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-87457",
+   "label": "Outpatient clinic, Middlesex County (2018, simulated, 345 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-78813",
+   "label": "Outpatient clinic, Norfolk County (2018, simulated, 491 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-100191",
+   "label": "Outpatient clinic, Middlesex County (2018, simulated, 596 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-62255",
+   "label": "Primary school, Middlesex County (2018, simulated, 318 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-98147",
+   "label": "Primary school, Essex County (2018, simulated, 443 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-69197",
+   "label": "Primary school, Norfolk County (2018, simulated, 377 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-41587",
+   "label": "Restaurant, Berkshire County (2018, simulated, 362 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-70557",
+   "label": "Restaurant, Worcester County (2018, simulated, 355 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-23291",
+   "label": "Restaurant, Essex County (2018, simulated, 648 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-81970",
+   "label": "Secondary school, Middlesex County (2018, simulated, 595 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-42745",
+   "label": "Secondary school, Middlesex County (2018, simulated, 1,072 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-45227",
+   "label": "Secondary school, Hampden County (2018, simulated, 1,179 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-21432",
+   "label": "Small and medium office, Norfolk County (2018, simulated, 428 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-59760",
+   "label": "Small and medium office, Middlesex County (2018, simulated, 329 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-59757",
+   "label": "Small and medium office, Worcester County (2018, simulated, 317 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-77727",
+   "label": "Strip-mall retail, Middlesex County (2018, simulated, 725 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-49326",
+   "label": "Strip-mall retail, Suffolk County (2018, simulated, 796 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-26390",
+   "label": "Strip-mall retail, Plymouth County (2018, simulated, 682 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-36292",
+   "label": "Warehouse, Middlesex County (2018, simulated, 490 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-34312",
+   "label": "Warehouse, Plymouth County (2018, simulated, 385 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  },
+  {
+   "id": "cs-34320",
+   "label": "Warehouse, Middlesex County (2018, simulated, 561 kW peak)",
+   "group": "Simulated Massachusetts buildings (2018)"
+  }
+ ],
+ "find": {
+  "kicker": "Same battery, same building, very different money: the median Massachusetts building in the library saves $41,587 a year on Eversource's Greater Boston rate and $12,217 on National Grid's G-3. Which utility a prospect pays matters more than what they make.",
+  "prose": "<p>The two tariffs price the same kilowatt very differently. Eversource G-2 charges $33.95 per kW of billed demand because it folds transmission into the demand charge. National Grid G-3 charges $10.61 and bills transmission per kWh, where a battery cannot touch it. A Powerblock that cuts 103 kW off a typical building's monthly peak is therefore worth 1.2 months of the bill in Eversource territory and 0.4 in National Grid's.</p><p>Within a territory, the shape of the load decides the rest, and not in the way the usual metric suggests. Load factor, the number most screening starts with, barely predicts a Powerblock's value (rank correlation -0.05 with kW cut). What does predict it is how much energy sits in the top 250 kW of the month's load curve on the hardest day (rank correlation -0.84). A full battery can deliver about 446 kWh. Below that line a site's typical cut is 211 kW of the 250; above it, 105 kW. That top slice is invisible on a bill and obvious in 15-minute data.</p><p>The metered sites are worth the most: a median $68k a year for the German manufacturers and $54k for the Portuguese C&amp;I customers, against $42k for simulated Massachusetts buildings. Real factories are spikier than simulations, which is good news for a company that targets manufacturers.</p>",
+  "prose2": "<h3>The other half of the money: grid events</h3><p>Powertown's own FAQ says members get demand-response revenue without curtailing their operations. Mass Save's ConnectedSolutions Daily Dispatch pays $200 per kW of average battery discharge across the summer's events, usually 30 to 60 events of two or three hours between 3 and 8 pm. A 2-hour, 470 kWh battery can average about 163 kW across a realistic event mix, worth roughly $32,655 a summer. In National Grid territory that is 2.3\u00d7 the member's demand savings. In that territory the battery's main job is the grid; the member's peak is the side dish.</p><p>The two streams compete for the same 470 kWh, so I co-optimized them month by month with a linear program. Stacking pays: the average building's total rises to $73,752 a year on the Eversource rate and $44,899 on National Grid's. The cost is the demand savings given up when an event drains the battery before the building's own peak, or when energy is held back for an event instead of a peak: 5% of demand savings under Eversource and 13% under National Grid. It is cheap where the building peaks on hot afternoons, when one discharge earns both, and expensive where it does not. Secondary schools give up almost nothing; warehouses give up the most. 17% of buildings lose more than a tenth of their Eversource demand savings. Those are the sites where event participation has to be decided day by day.</p>",
+  "prose3": "<h3>Screening before there is interval data</h3><p>Most prospects can hand over a year of bills long before anyone pulls 15-minute data from the utility. The screener below finds the 15 buildings in the library whose twelve bills look most like the prospect's (size, load factor, seasonality) and reports what a Powerblock did for them. Tested by leaving each site out in turn, its median error on the real, metered sites is 14% (Eversource) and 15% (National Grid), against 27% for guessing the library median. On simulated buildings it looks better (11%), because simulations have look-alikes; the metered number is the honest one. Good enough to decide which sites deserve a data request; not good enough to price a contract, because bills cannot see the top slice.</p>",
+  "default_tariff": "es-g2-boston",
+  "slice_title": "What actually predicts the value: the energy in the top 250 kW",
+  "slice_sub": "Each dot is a site (958). x: on the hardest day of a typical month, the energy above (monthly peak \u2212 250 kW). y: billed kW the Powerblock removes per month on the Eversource rule, perfect foresight. 4% of sites sit left of the line.",
+  "slice_knee": 446.456788361147,
+  "slice_tariff": "es-g2-boston",
+  "slice_rho": -0.8387644526278483,
+  "lf_rho": -0.04664327412332661,
+  "strip_sub": "Each dot is one building with a peak of at least 250 kW (958 sites). Perfect-foresight value of one 250 kW / 522 kWh Powerblock under the selected 2026 tariff. Click a dot with a full profile to open it above."
+ },
+ "stack": {
+  "title": "Average Massachusetts building: one Powerblock, with and without ConnectedSolutions",
+  "sub": "791 ComStock buildings, 2018 weather. 42 Daily Dispatch events placed on ISO-NE's 42 highest-load summer days of 2018; $200 per kW of average event performance. Perfect foresight of the building's load.",
+  "xmax": 84814.81958609408,
+  "rows": [
+   {
+    "label": "National Grid G-3: demand only",
+    "total": 14132.855174494178,
+    "segs": [
+     {
+      "v": 14132.855174494178,
+      "kind": "demand"
+     }
+    ]
+   },
+   {
+    "label": "National Grid G-3: demand + events",
+    "total": 44899.21108396171,
+    "segs": [
+     {
+      "v": 12244.066567666969,
+      "kind": "demand"
+     },
+     {
+      "v": 32655.14451629474,
+      "kind": "cs"
+     }
+    ]
+   },
+   {
+    "label": "Eversource G-2, Boston: demand only",
+    "total": 45793.727940702556,
+    "segs": [
+     {
+      "v": 45793.727940702556,
+      "kind": "demand"
+     }
+    ]
+   },
+   {
+    "label": "Eversource G-2, Boston: demand + events",
+    "total": 73752.01703138616,
+    "segs": [
+     {
+      "v": 43726.64199026232,
+      "kind": "demand"
+     },
+     {
+      "v": 30025.375041123843,
+      "kind": "cs"
+     }
+    ]
+   }
+  ],
+  "totals": {
+   "ngrid-g3": {
+    "alone": 14132.855174494178,
+    "lost": 1888.7886068272094,
+    "cs": 32655.14451629474,
+    "stacked": 44899.21108396171,
+    "cs_kw": 163.2757225814737,
+    "lost_share": 0.13364522479760074,
+    "share_sites_lose_over_10pct": 0.7458912768647282
+   },
+   "es-g2-boston": {
+    "alone": 45793.727940702556,
+    "lost": 2067.08595044024,
+    "cs": 30025.375041123843,
+    "stacked": 73752.01703138616,
+    "cs_kw": 150.1268752056192,
+    "lost_share": 0.045139062561512164,
+    "share_sites_lose_over_10pct": 0.1706700379266751
+   }
+  }
+ },
+ "screener": {
+  "k": 15,
+  "mu": [
+   6.170838747948514,
+   0.45051480886564804,
+   0.055236188430763916,
+   1.4330798541270147,
+   0.7074475298603422
+  ],
+  "sigma": [
+   0.6318110147171919,
+   0.13312558489187032,
+   0.026388639790015864,
+   0.2545809280574781,
+   0.14150675443573177
+  ],
+  "hours": [
+   744,
+   672,
+   744,
+   720,
+   744,
+   720,
+   744,
+   744,
+   720,
+   744,
+   720,
+   744
+  ],
+  "example": [
+   [
+    391,
+    57973
+   ],
+   [
+    362,
+    61985
+   ],
+   [
+    309,
+    61035
+   ],
+   [
+    286,
+    47526
+   ],
+   [
+    271,
+    34093
+   ],
+   [
+    306,
+    34302
+   ],
+   [
+    289,
+    36964
+   ],
+   [
+    268,
+    35964
+   ],
+   [
+    308,
+    40472
+   ],
+   [
+    347,
+    53231
+   ],
+   [
+    372,
+    63564
+   ],
+   [
+    377,
+    59123
+   ]
+  ],
+  "accuracy": {
+   "ngrid-g3": {
+    "median_abs_pct_err": 0.11473587815693079,
+    "within_25pct": 0.8350730688935282,
+    "metered_median_abs_pct_err": 0.15367316341829085,
+    "metered_baseline": 0.2848402447314751,
+    "baseline_median_abs_pct_err": 0.2448829099003046,
+    "interval_coverage": 0.7881002087682673
+   },
+   "es-g2-boston": {
+    "median_abs_pct_err": 0.11451218089539048,
+    "within_25pct": 0.8308977035490606,
+    "metered_median_abs_pct_err": 0.1443193449334699,
+    "metered_baseline": 0.2715311004784691,
+    "baseline_median_abs_pct_err": 0.241097912736235,
+    "interval_coverage": 0.7745302713987474
+   }
+  },
+  "sub": "Twelve months of peak kW and kWh, the two numbers on every commercial bill. Leave-one-out median error on the metered sites: 14% (Eversource), 15% (National Grid)."
+ },
+ "operate": {
+  "kicker": "Perfect foresight is a ceiling, not a plan. On 154 real metered customers and a year none of the models had seen, a forecast-driven controller kept 78% of the ceiling's value. A tuned rule-of-thumb kept 58%, and a fixed daily schedule 8%.",
+  "prose": "<p>The demand charge is set by the single worst interval of the month, so the controller's real job is to know, every fifteen minutes, whether today is the day that matters. Discharging on an ordinary afternoon wastes energy that a harder afternoon later in the month will need. Holding back on the hard day lets the peak through, and Powertown's own FAQ says that miss is Powertown's to absorb.</p><p>The forecast controller re-plans every 15 minutes. A gradient-boosted quantile model, trained across all sites on scale-free load, issues a day-ahead forecast of the building's load; tuning on 2013 chose its median plus a 10 kW safety margin. The controller corrects that forecast with what the meter has shown so far today, then computes the lowest billed demand the battery can still defend for the rest of the day. It never defends below the month's already-sunk peak: once the month has set a peak of X kW, shaving below X is worth exactly nothing and only drains the battery before the day that counts. For the same reason it never recharges above X, so it cannot create a peak of its own.</p><p>The protocol is the important part. The model was trained on 2012, every controller's knobs were tuned on 2013 (the baselines were tuned too), and 2014 was run once. The knobs were tuned on a plain all-hours demand rule and only then scored on the two Massachusetts billing rules, so they are not fitted to the tariff they are judged on.</p>",
+  "prose2": "<p>Two findings matter for Powertown. First, the forecast is worth real money: on the Eversource rule, the gap between the forecast controller and the tuned ratchet is about $11,799 per Powerblock per year. Second, a simple forecast gets most of the way. The same controller fed a same-weekday average instead of the ML model kept 74%. The ML forecast cut median-forecast error by 25% against that average, and its 95th-percentile band covered 94.5% of actual intervals. It is calibrated, but control quality rises more slowly than forecast quality. Better forecasts help most on the few days that set the month's peak, which is where the next model should focus.</p>",
+  "prose3": "<p>The worst failure mode is quiet. A controller that dumps its energy early on the month's hardest day looks fine for weeks, then produces one interval that costs a month of savings. The two panels above show a real case. Use the Evaluate instrument to replay any site with any controller.</p>",
+  "params": {
+   "q": 0.5,
+   "margin": 10.0,
+   "alpha": 1.0,
+   "beta": 6.0,
+   "margin_seasonal": 0.0,
+   "alpha_seasonal": 1.0
+  },
+  "chart_title": "Share of the perfect-foresight value each controller kept",
+  "chart_sub": "154 metered customers, 2014 (never seen in training or tuning), Eversource G-2 Greater Boston billing rule. Bars are total billed-kW reduction across 1,848 site-months, relative to the oracle.",
+  "bars": [
+   {
+    "label": "Perfect foresight (ceiling)",
+    "v": 1.0,
+    "kind": "oracle"
+   },
+   {
+    "label": "Forecast controller, ML forecast",
+    "v": 0.7792670524924193,
+    "kind": "ours"
+   },
+   {
+    "label": "Forecast controller, same-weekday average",
+    "v": 0.7443832273964156,
+    "kind": "base"
+   },
+   {
+    "label": "Ratchet rule (tuned)",
+    "v": 0.5810160795106063,
+    "kind": "base"
+   },
+   {
+    "label": "Fixed daily discharge window",
+    "v": 0.07693731838059319,
+    "kind": "base"
+   }
+  ],
+  "by_tariff": {
+   "all-hours": {
+    "oracle": 1.0,
+    "mpc": 0.7781066819058717,
+    "seasonal": 0.7587420792338685,
+    "ratchet": 0.6090661124913642,
+    "timer": 0.02087568637275092
+   },
+   "ngrid-g3": {
+    "oracle": 1.0,
+    "mpc": 0.7813089661463878,
+    "seasonal": 0.7469914779966222,
+    "ratchet": 0.5977203936724497,
+    "timer": 0.09222012641472224
+   },
+   "es-g2-boston": {
+    "oracle": 1.0,
+    "mpc": 0.7792670524924193,
+    "seasonal": 0.7443832273964156,
+    "ratchet": 0.5810160795106063,
+    "timer": 0.07693731838059319
+   }
+  },
+  "miss": {
+   "site_id": "pt-086",
+   "month": 4,
+   "day": 1,
+   "days": 3,
+   "loss_kw": 240.0,
+   "peak_kw": 1263.1578369140625,
+   "tariff": "es-g2-boston",
+   "title": "Anatomy of a miss: Customer 086, Apr 2014",
+   "sub": "Top: the tuned ratchet rule. Bottom: the forecast controller. Same building, same battery, same three days. The month's billed demand differs by 240 kW, about $8,148 on the Eversource rule."
+  }
+ },
+ "audit": [
+  {
+   "status": "pass",
+   "what": "The fast optimizer agrees with an independent linear program",
+   "why": "Perfect-foresight dispatch uses a greedy rule plus bisection, which is fast enough to run in a browser. A separate LP (HiGHS) solves the same month from scratch. Tests on single-window, two-window and off-peak-discount billing rules agree to within 0.05 kW."
+  },
+  {
+   "status": "pass",
+   "what": "Every dispatch obeys the battery's physics",
+   "why": "On every one of the 2 \u00d7 995 perfect-foresight runs, the code checks that power never exceeds 250 kW, charge stays within 0 to 470 kWh, energy is conserved every 15 minutes with round-trip losses, and nothing is exported to the grid. Any violation stops the pipeline."
+  },
+  {
+   "status": "pass",
+   "what": "The browser engine reproduces the Python engine",
+   "why": "The JavaScript that values your uploaded data is a port of the Python engine. Tests run both on the same inputs and require identical controller traces (to 10\u207b\u2076 kW) and identical bills (to the cent) on both tariffs."
+  },
+  {
+   "status": "pass",
+   "what": "The forecaster cannot see the future",
+   "why": "A test scrambles every day from d onward and asserts that day d's features do not change. Training (2012), tuning (2013) and testing (2014) never overlap, and the tuning used a different billing rule from the one the headline is scored on."
+  },
+  {
+   "status": "pass",
+   "what": "An AI agent gathered the tariffs; a test checks its work",
+   "why": "A research agent pulled 31 official National Grid, Eversource and Mass Save documents. A test re-reads the hash-pinned PDFs and requires every modeled number and billing rule to appear verbatim in the document it is attributed to."
+  },
+  {
+   "status": "pass",
+   "what": "The forecast controller never bills more than no battery would",
+   "why": "Across 1,848 test site-months on the Eversource rule, months whose billed demand ended above the no-battery bill: forecast controller 0, ratchet 0, fixed daily window 3. For the forecast controller this is now guaranteed by construction and checked by a property test that feeds it deliberately terrible forecasts."
+  },
+  {
+   "status": "found",
+   "what": "The first controller could make a month worse",
+   "why": "An earlier version recharged up to the threshold it had planned from the forecast. When the forecast ran high, that recharge became the month's new peak: 5 of 1,848 test months billed more than with no battery at all. The fix uses the same sunk-peak logic. Recharging below the month's already-set peak is free; above it, the recharge can create the bill, so the controller never does that."
+  },
+  {
+   "status": "found",
+   "what": "Daylight-saving artefacts in the Portuguese meter data",
+   "why": "On the March clock change the 1 am hour reads zero, and in October it holds two hours of energy. The October interval would show up as a fake monthly peak. Those intervals are interpolated and halved respectively, 24 per site."
+  },
+  {
+   "status": "found",
+   "what": "The simulated Massachusetts buildings were an hour off all summer",
+   "why": "NREL ComStock timestamps are standard time year-round, while tariff windows and ISO-NE hours follow the clock. Converting to Eastern clock time moved the median valuation by under 2%, and it decides which hour an event or a peak window lands on."
+  },
+  {
+   "status": "found",
+   "what": "Two of the German plants are the same meter",
+   "why": "kit17-27 and kit17-28 are byte-identical. One was dropped, because a duplicate would let the screener's leave-one-out test find its own twin. The 2017 KIT plants also peak at 8 to 170 kW, too small for a 250 kW battery, so they are excluded."
+  },
+  {
+   "status": "found",
+   "what": "The baseline's best setting sat on the edge of its search grid",
+   "why": "In the first two runs the tuned ratchet rule kept choosing the most aggressive start it was offered. The grid was widened until the choice was interior or hit the natural floor of zero (final: start each month 6 \u00d7 250 kW below last month's peak), so the comparison is not won by handicapping the baseline."
+  },
+  {
+   "status": "assume",
+   "what": "Usable energy and efficiency are not published",
+   "why": "I assume 90% usable depth of discharge (470 of 522 kWh) and 90.3% AC round-trip efficiency (97.5% PCS each way times 95% DC). Both are parameters, and every result can be re-run."
+  },
+  {
+   "status": "assume",
+   "what": "Real load shapes, Massachusetts bills",
+   "why": "The metered sites are Portuguese and German. Their load shapes are real; the bills are what those shapes would pay under 2026 Massachusetts tariffs. It is a stand-in until the same pipeline runs on Powertown members' Green Button data."
+  },
+  {
+   "status": "assume",
+   "what": "Simulated buildings are smoother than real ones",
+   "why": "ComStock has no compressor starts or forklift chargers, so it likely understates spiky sites and overstates how forecastable a building is. That is why every control claim on this page uses metered data only."
+  },
+  {
+   "status": "assume",
+   "what": "Small tariff simplifications",
+   "why": "Holidays are left inside peak windows, kVA billing and power factor are ignored, and Eversource's 12-month customer-charge lookback uses the evaluation year. None of these is quantified here; each is a short change to the tariff JSON."
+  },
+  {
+   "status": "assume",
+   "what": "ConnectedSolutions event days are reconstructed",
+   "why": "2018 events are placed on the 42 highest-load ISO-NE summer days, with Eversource's real 2025 mix of 2- and 3-hour events inside the 3-8 pm window. Performance is metered at the battery with no export."
+  }
+ ],
+ "next": "<p>Four things, in the order I would want them to exist:</p><ol><li><strong>Instant, audited value on every prospect.</strong> Wire this engine into the site-prospecting flow, so a member's Green Button export or twelve bills produce a value range, the months-off-bill number, and the assumptions behind it before anyone visits the site. It should improve with every installed Powerblock's real savings.</li><li><strong>A fleet controller that treats events and peaks as one problem.</strong> The stacking result says the conflict is small on average and large at specific sites on specific days. The controller should decide each event day per site, using ISO-NE's day-ahead forecast and each member's own risk of a new monthly peak.</li><li><strong>The transmission coincident-peak option, priced honestly.</strong> National Grid G-3 lets a customer swap the 3.455\u00a2/kWh transmission charge for $21.91/kW measured at ISO-NE's monthly peak hour. Under that option every kW removed at ISO-NE's peak hour is worth $21.91 a month, so 250 kW delivered at the right hour every month is worth up to about $65,000 a year. Doing it reliably is a forecasting problem, and it is the kind of rate switch a member would never attempt without a battery and a model.</li><li><strong>A tariff watcher with an audit harness.</strong> National Grid has issued nine Massachusetts rate summaries so far in 2026 (M.D.P.U. 1-26-A through 1-26-I). An agent should read each DPU filing, propose the new tariff JSON, and only merge it once a check like the one in Audit shows every number in the source PDF, then re-price the fleet.</li></ol>"
+}

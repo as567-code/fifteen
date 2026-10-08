@@ -1,0 +1,44 @@
+154 metered sites
+look-ahead check passed
+stage-1 rows (1249961, 17) 11s
+  validation 0/154 57s
+  validation 25/154 163s
+  validation 50/154 268s
+  validation 75/154 371s
+  validation 100/154 478s
+  validation 125/154 584s
+  validation 150/154 685s
+validation 2013 best: {'ratchet': ('ratchet_6.0', 0.636), 'mpc': ('mpc_0.5_10.0_1.0', 0.776), 'seasonal': ('seasonal_0.0_1.0', 0.748)} timer 0.021
+stage-2 rows (2078631, 17) 709s
+  test 0/154 795s
+  test 25/154 818s
+  test 50/154 840s
+  test 75/154 863s
+  test 100/154 886s
+  test 125/154 910s
+  test 150/154 933s
+TEST 2014: {
+ "all-hours": {
+  "oracle": 1.0,
+  "mpc": 0.7781066819058717,
+  "seasonal": 0.7587420792338685,
+  "ratchet": 0.6090661124913642,
+  "timer": 0.02087568637275092
+ },
+ "ngrid-g3": {
+  "oracle": 1.0,
+  "mpc": 0.7813089661463878,
+  "seasonal": 0.7469914779966222,
+  "ratchet": 0.5977203936724497,
+  "timer": 0.09222012641472224
+ },
+ "es-g2-boston": {
+  "oracle": 1.0,
+  "mpc": 0.7792670524924193,
+  "seasonal": 0.7443832273964156,
+  "ratchet": 0.5810160795106063,
+  "timer": 0.07693731838059319
+ }
+}
+forecast: {'pinball_p50': 0.03869498977568161, 'pinball_p50_same_slot_last_week': 0.05434789225449531, 'pinball_p50_same_weekday_4wk': 0.05180413584807974, 'coverage_p80': 0.7941213752001424, 'coverage_p95': 0.9450034839589635}
+done in 937s

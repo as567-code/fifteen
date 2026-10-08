@@ -1,0 +1,437 @@
+{
+  "retrieved_on": "2026-10-08",
+  "scope": "Massachusetts C&I demand-charge tariffs (National Grid / Massachusetts Electric Co. and Eversource / NSTAR Electric), Basic Service supply, and Mass Save C&I ConnectedSolutions, for a 250 kW / 522 kWh behind-the-meter peak-shaving model.",
+  "method_notes": [
+    "All numbers below come from utility-hosted official tariff / rate-summary PDFs (M.D.P.U.-numbered) or from the program administrators' own program pages. No third-party sites were used as a source of any number.",
+    "PDF text was extracted with pdfplumber. Column assignment of every demand charge was checked against word x-positions in the PDF (for example, the National Grid G-3 'Demand' value sits in the Net Distribution column and the $21.91 TCP value sits in the Transmission column).",
+    "Local copies of every PDF used are in data/tariffs/sources/ (SHA256SUMS.txt included). HTML snapshots of program pages are in data/tariffs/sources/web_snapshots/.",
+    "Units: demand charges are $/kW-month (or $/kVA-month where stated). energy_charges_cents_per_kwh are cents/kWh. *_usd_per_kwh component breakdowns are $/kWh, as printed in the source.",
+    "Delivery only: energy charges exclude Basic Service (supply). Basic Service is listed separately under basic_service."
+  ],
+  "tariffs": [
+    {
+      "utility": "National Grid MA (Massachusetts Electric Company)",
+      "rate": "G-2",
+      "rate_name": "General Service - Demand",
+      "service_area": "All Massachusetts Electric territory (Basic Service zones SEMA / NEMA / WCMA differ only in supply)",
+      "effective_date": "2026-10-01",
+      "source_url": "https://www.nationalgridus.com/media/pdfs/billing-payments/tariffs/mae/meco_delivery.pdf",
+      "source_doc": "M.D.P.U. No. 1-26-I, Summary of Electric Delivery Service Rates (cancels 1-26-H); issued Sept 9, 2026; effective Oct 1, 2026",
+      "local_copy": "sources/ngrid_ma_summary_delivery_rates_MDPU_1-26-I_eff_2026-10-01.pdf",
+      "page": "Sheet 3 of 5 (General Service Rates, totals); Sheet 4 of 5 (Net Distribution Rate breakdown)",
+      "rate_schedule_doc": "M.D.P.U. No. 1547 (G-2 tariff), effective Oct 1, 2024. https://www.nationalgridus.com/media/pdfs/billing-payments/tariffs/mae/meco_g2.pdf",
+      "customer_charge_usd_month": 45.0,
+      "demand_charges": [
+        {
+          "name": "Distribution demand (base distribution charge)",
+          "usd_per_kw": 15.24,
+          "applies_to": "Monthly billing Demand = greatest 15-minute kW in ANY hour (peak and off-peak) of the month; or 90% of greatest 15-min kVA if kW > 75; minimum 5 kW",
+          "source_quote": "G-2 Cust. Chge. 1547 $45.00 ... Demand $15.24 $15.24 (Sheet 3 of 5, 1-26-I)",
+          "history_2026": [
+            {"period": "2026-01-01 to 2026-09-30", "usd_per_kw": 15.06, "source_doc": "M.D.P.U. 1-26-A through 1-26-G (e.g. https://www.nationalgridus.com/media/pdfs/billing-payments/electric-rates/ma/2026/0726meco.pdf, Sheet 3)"},
+            {"period": "2026-10-01 onward", "usd_per_kw": 15.24, "source_doc": "M.D.P.U. 1-26-I"}
+          ]
+        }
+      ],
+      "transmission_demand_charge": "None. G-2 transmission is billed per kWh ($0.03509/kWh), not per kW.",
+      "energy_charges_cents_per_kwh": {
+        "all_kwh": 7.993,
+        "notes": "Total retail delivery price, all hours, excluding Basic Service. Components ($/kWh): net distribution 0.01661 (base distribution kWh charge 0.00000 plus reconciling factors); net transition (0.00029); net energy efficiency 0.00764 (0.00514 reconciling + 0.00250 charge); renewables 0.00050; net metering recovery surcharge 0.01346; distributed solar (SMART) 0.00517; EV program factor 0.00172; ESMP factor 0.00003; transmission 0.03509; total 0.07993. Jan-Sep 2026 totals were different (e.g. 1-26-G, effective Jul 1 2026: $0.08382/kWh)."
+      },
+      "energy_components_usd_per_kwh": {
+        "net_distribution": 0.01661, "net_transition": -0.00029, "net_energy_efficiency": 0.00764, "renewables": 0.0005,
+        "net_metering_recovery_surcharge": 0.01346, "distributed_solar_SMART": 0.00517, "ev_program_factor": 0.00172,
+        "esmp_factor": 0.00003, "transmission": 0.03509, "total_delivery": 0.07993
+      },
+      "peak_hours": "Not applicable to the G-2 demand charge, which is based on all hours. G-2 is not a TOU energy rate.",
+      "billing_demand_definition": "M.D.P.U. 1547: 'The greatest fifteen-minute peak occurring during all hours, Peak and Off-Peak, within such a month as measured in kilowatts'; or 90% of the greatest 15-min kVA where the customer's kW Demand exceeds 75 kW; or 5 kW, whichever is greatest.",
+      "interval_minutes": 15,
+      "ratchet": "None in M.D.P.U. 1547 or in Terms & Conditions M.D.P.U. 1570. Minimum Charge = Customer Charge + Demand Charge.",
+      "power_factor": "Indirect. Billing demand is the greater of kW and 90% of kVA when kW > 75, so it acts as a penalty below 90% PF. T&C 1570 section 4E expects PF of at least 90%.",
+      "eligibility": "New customer goes on G-2 if est. average use > 10,000 kWh/month but not more than 200 kW Demand. The customer may be transferred off G-2 if the 12-month average is < 8,000 kWh/month or > 200 kW for 3 consecutive months.",
+      "other_kw_credits": "High Voltage Delivery credit ($0.67)/kW; High Voltage Metering discount (0.0481%) (1-26-I Sheet 3).",
+      "notes": "For peak shaving, only the $15.24/kW distribution demand charge responds to kW reduction, and the any-hour 15-min peak counts. Transmission is volumetric. EV Pricing schedules A-D exist but apply only to separately metered EV charging."
+    },
+    {
+      "utility": "National Grid MA (Massachusetts Electric Company)",
+      "rate": "G-3",
+      "rate_name": "General Service Time-of-Use (large)",
+      "service_area": "All Massachusetts Electric territory",
+      "effective_date": "2026-10-01",
+      "source_url": "https://www.nationalgridus.com/media/pdfs/billing-payments/tariffs/mae/meco_delivery.pdf",
+      "source_doc": "M.D.P.U. No. 1-26-I, Summary of Electric Delivery Service Rates; issued Sept 9, 2026; effective Oct 1, 2026",
+      "local_copy": "sources/ngrid_ma_summary_delivery_rates_MDPU_1-26-I_eff_2026-10-01.pdf",
+      "page": "Sheet 3 of 5 (totals); Sheet 4 of 5 (distribution breakdown)",
+      "rate_schedule_doc": "M.D.P.U. No. 1591 (G-3 tariff), effective Mar 31, 2025. https://www.nationalgridus.com/media/pdfs/billing-payments/tariffs/mae/meco_g3.pdf ; Transmission Service Cost Adjustment Provision M.D.P.U. No. 1592 (effective Mar 31, 2025)",
+      "customer_charge_usd_month": 350.0,
+      "demand_charges": [
+        {
+          "name": "Distribution demand (base distribution charge)",
+          "usd_per_kw": 10.61,
+          "applies_to": "Greatest 15-minute kW during Peak hours (8:00 a.m.-9:00 p.m. Mon-Fri, excluding holidays) in the month, or 90% of greatest 15-min kVA during Peak hours, whichever is greater",
+          "source_quote": "G-3 Cust. Chge. 1591 $350.00 ... Demand $10.61 $10.61 (Sheet 3 of 5, 1-26-I)",
+          "history_2026": [
+            {"period": "2026-01-01 to 2026-09-30", "usd_per_kw": 10.48, "source_doc": "M.D.P.U. 1-26-A through 1-26-G"},
+            {"period": "2026-10-01 onward", "usd_per_kw": 10.61, "source_doc": "M.D.P.U. 1-26-I"}
+          ]
+        },
+        {
+          "name": "OPTIONAL Transmission Coincident Peak (TCP) demand charge",
+          "usd_per_kw": 21.91,
+          "applies_to": "OPTIONAL election, 12-month minimum. Customer's coincident 60-minute kW at the time of the ISO-NE regional network monthly transmission system peak, billed one month in arrears. Replaces the per-kWh transmission charge per M.D.P.U. 1591 and 1592.",
+          "source_quote": "Transmission Coincident Pk Demand Charge $21.91 $21.91 (Sheet 3 of 5); tariff 1591: 'shall be the customer's coincident 60-minute kilowatt demand.'",
+          "history_2026": [
+            {"period": "2026-01-01 to 2026-02-28", "usd_per_kw": 23.82, "source_doc": "M.D.P.U. 1-26-A / 1-26-B / 1-26-C"},
+            {"period": "2026-03-01 onward", "usd_per_kw": 21.91, "source_doc": "M.D.P.U. 1-26-D through 1-26-I"}
+          ],
+          "extra_fee": "$155.00 charge on any manual billing due to this option (tariff 1591 p.4)"
+        }
+      ],
+      "transmission_demand_charge": "Default: none. Transmission is per kWh ($0.03455/kWh). Optional TCP: $21.91/kW of coincident 60-min peak, in lieu of the per-kWh transmission charge.",
+      "energy_charges_cents_per_kwh": {
+        "peak": 6.661,
+        "off_peak": 6.388,
+        "peak_TCP_option_excluding_kwh_transmission_computed": 3.206,
+        "off_peak_TCP_option_excluding_kwh_transmission_computed": 2.933,
+        "notes": "Default totals exclude Basic Service. Peak components ($/kWh): net distribution 0.01123 (base 0.00273); net transition (0.00029); net EE 0.00764; renewables 0.00050; net metering recovery 0.00858; SMART 0.00328; EV 0.00110; ESMP 0.00002; transmission 0.03455; total 0.06661. Off-peak: net distribution 0.00850 (base 0.00000), other components the same, total 0.06388. TCP-option values are COMPUTED (total minus $0.03455 transmission). The summary sheet still prints $0.06661/$0.06388 in the TCP rows; see open_questions."
+      },
+      "energy_components_usd_per_kwh": {
+        "peak": {"net_distribution": 0.01123, "net_transition": -0.00029, "net_energy_efficiency": 0.00764, "renewables": 0.0005, "net_metering_recovery_surcharge": 0.00858, "distributed_solar_SMART": 0.00328, "ev_program_factor": 0.0011, "esmp_factor": 0.00002, "transmission": 0.03455, "total_delivery": 0.06661},
+        "off_peak": {"net_distribution": 0.0085, "net_transition": -0.00029, "net_energy_efficiency": 0.00764, "renewables": 0.0005, "net_metering_recovery_surcharge": 0.00858, "distributed_solar_SMART": 0.00328, "ev_program_factor": 0.0011, "esmp_factor": 0.00002, "transmission": 0.03455, "total_delivery": 0.06388}
+      },
+      "peak_hours": "Peak: 8:00 a.m. to 9:00 p.m. Monday-Friday, excluding holidays (New Year's, Presidents', Memorial, Independence, Columbus, Labor, Veterans, Thanksgiving, Christmas; nationally observed day). Off-peak: 9:00 p.m.-8:00 a.m. weekdays, plus all day Sat/Sun/holidays. Same all year.",
+      "billing_demand_definition": "M.D.P.U. 1591: 'The greatest fifteen-minute peak occurring during the Peak hours period within such a month as measured in kilowatts', or '90% of the greatest fifteen-minute peak occurring during the Peak hours period ... as measured in kilovolt-amperes', whichever is greater. Off-peak demand is not billed.",
+      "interval_minutes": 15,
+      "ratchet": "None in M.D.P.U. 1591 or T&C M.D.P.U. 1570. No percent-of-prior-11-months provision.",
+      "power_factor": "Indirect, through the kVA alternative (90% of peak-period kVA if greater than kW). T&C 1570 section 4E expects PF of at least 90% and may require corrective equipment.",
+      "eligibility": "New customer goes on G-3 if the Company estimates average use will exceed 200 kW of Demand. The customer may be transferred off G-3 (at either party's option) if the 12-month average monthly demand is < 180 kW for 3 consecutive months. Requires TOU metering.",
+      "other_kw_credits": "High Voltage Delivery credit ($0.67)/kW; additional 115 kV delivery credit ($10.47)/kW; HV metering discount (2.717%); 2nd feeder service $9.80/kW; 2nd feeder with additional transformer $10.47/kW (1-26-I Sheet 3).",
+      "notes": "For peak shaving: (a) only on-peak (8am-9pm weekday) 15-min kW sets the $10.61/kW charge; (b) with the optional TCP election, shaving the site's load in the ISO-NE monthly peak hour is worth $21.91/kW-month, which requires forecasting the monthly system peak."
+    },
+    {
+      "utility": "Eversource MA (NSTAR Electric Company)",
+      "rate": "G-2",
+      "rate_name": "Medium General Service - Greater Boston (BOST)",
+      "service_area": "EMA - Greater Boston (legacy Boston Edison)",
+      "effective_date": "2026-09-01",
+      "source_url": "https://www.eversource.com/docs/default-source/rates-tariffs/ma-electric/1-tariff-ma.pdf",
+      "source_doc": "M.D.P.U. No. 1-26-F, Summary of Electric Service Delivery Rates; filed Aug 25, 2026; effective Sept 1, 2026. Eversource EMA delivery-rates web page says the current rates are 'effective September 1, 2026 - December 31, 2026'.",
+      "local_copy": "sources/eversource_ma_summary_delivery_rates_MDPU_1-26-F_eff_2026-09-01.pdf",
+      "page": "Page 2 of 7 (Part A - Total Delivery Rates)",
+      "rate_schedule_doc": "M.D.P.U. No. 15I (G-2 Greater Boston), effective Jan 1, 2025. https://www.eversource.com/docs/default-source/rates-tariffs/ma-electric/15-tariff-ma.pdf",
+      "customer_charge_usd_month": {"kW<=150": 27.0, "150<kW<=300": 110.0, "300<kW<=1000": 160.0, "kW>1000": 370.0, "basis": "maximum monthly billing demand in the most recent twelve months (tariff 15I)"},
+      "demand_charges": [
+        {"name": "Distribution demand", "usd_per_kw": 20.21, "applies_to": "Monthly billing demand (see billing_demand_definition)", "source_quote": "Demand (kW) $20.21 $20.21 $13.74 $33.95 (1-26-F p.2, G-2 / 15 / BOST)", "last_changed": "2026-04-01 (base distribution column 'Last change')"},
+        {"name": "Transmission demand", "usd_per_kw": 13.74, "applies_to": "Same billing demand (printed on the same Demand line, Transmission column)", "source_quote": "Demand (kW) $20.21 $20.21 $13.74 $33.95", "last_changed": "2026-01-01"},
+        {"name": "Total demand (distribution + transmission)", "usd_per_kw": 33.95, "applies_to": "Billing demand", "source_quote": "Demand (kW) ... $33.95"}
+      ],
+      "energy_charges_cents_per_kwh": {
+        "all_kwh": 3.853,
+        "notes": "No TOU energy differentiation. Components ($/kWh): base distribution 0.00000; exogenous (0.00001); reconciling 0.01767; total distribution 0.01766; revenue decoupling (0.00025); distributed solar (SMART) 0.00332; net metering recovery 0.00355; provisional system planning 0.00004; ESMP 0.00001; EV program 0.00058; transition (0.00077); transmission 0.00000; EE charge 0.01389 (0.00250 SBC + 0.01139 reconciling); renewable 0.00050; total 0.03853."
+      },
+      "peak_hours": "Demand-reduction periods: June-September peak = 9 A.M.-6 P.M. weekdays; October-May peak = 8 A.M.-9 P.M. weekdays. All other hours off-peak, including 12 MA holidays.",
+      "billing_demand_definition": "Tariff 15I: 'maximum fifteen-minute demand (either kilowatts or 90 percent of the kilovolt-amperes) ... during the monthly billing period, except any demand recorded during off-peak hours will be reduced by 55 percent.' Effective billing demand = max(peak-period max, 0.45 x off-peak max).",
+      "interval_minutes": 15,
+      "ratchet": "No ratchet on the demand charge. The CUSTOMER CHARGE tier is set by max monthly billing demand over the most recent 12 months (a customer-charge ratchet).",
+      "power_factor": "Billing demand uses the greater of kW and 90% of kVA. T&C M.D.P.U. 3D section 5 expects PF of at least 90%.",
+      "eligibility": "Greater Boston service area, service voltage < 14,000 V, demand > an average of 100 kW for 12 consecutive months.",
+      "other_kw_credits": "Transformer Ownership Credit ($1.09)/kW at 2,400/4,160 V; Primary Metering Credit 2% of per-kWh charges.",
+      "notes": "Unlike National Grid, Eversource bills transmission per kW for G-2/G-3, so a peak-shaving kW avoids $33.95/kW-month here (subject to the off-peak 55% reduction rule)."
+    },
+    {
+      "utility": "Eversource MA (NSTAR Electric Company)",
+      "rate": "G-2",
+      "rate_name": "Medium General Service - Cambridge (CAMB)",
+      "service_area": "EMA - Cambridge",
+      "effective_date": "2026-09-01",
+      "source_url": "https://www.eversource.com/docs/default-source/rates-tariffs/ma-electric/1-tariff-ma.pdf",
+      "source_doc": "M.D.P.U. No. 1-26-F (effective Sept 1, 2026)",
+      "page": "Page 2 of 7",
+      "rate_schedule_doc": "M.D.P.U. No. 20H, effective Jan 1, 2025. https://www.eversource.com/docs/default-source/rates-tariffs/ma-electric/20-tariff-ma.pdf",
+      "customer_charge_usd_month": 110.0,
+      "demand_charges": [
+        {"name": "Distribution demand", "usd_per_kva": 5.55, "applies_to": "Billing demand in kVA", "source_quote": "Demand (kVA) $5.55 $5.55 $13.74 $19.29"},
+        {"name": "Transmission demand", "usd_per_kva": 13.74, "applies_to": "Same billing demand (kVA)", "source_quote": "Demand (kVA) $5.55 $5.55 $13.74 $19.29"},
+        {"name": "Total demand", "usd_per_kva": 19.29, "applies_to": "Billing demand (kVA)", "source_quote": "$19.29"}
+      ],
+      "energy_charges_cents_per_kwh": {"all_kwh": 5.401, "notes": "Base distribution 0.01548 + reconciling etc. (same reconciling/EE/transition components as BOST G-2)."},
+      "peak_hours": "Peak Load Period: while EDT is in effect, 9:00 a.m.-6:00 p.m. weekdays; while EST is in effect, 4:00 p.m.-9:00 p.m. weekdays.",
+      "billing_demand_definition": "Tariff 20H: highest 15-minute kVA during the Peak Load Period of the billing month, 'but shall not be less than 47% of the maximum 15-minute demand in kilovolt-amperes established during any billing period of the billing month.'",
+      "interval_minutes": 15,
+      "ratchet": "No multi-month ratchet. Same-month floor of 47% of all-hours max kVA.",
+      "power_factor": "Billed in kVA, so low PF raises billing demand directly.",
+      "eligibility": "Cambridge service area, service voltage < 13,800 V, demand exceeds (or is estimated to exceed) an average of 100 kW for 12 consecutive billing months.",
+      "notes": "Transformer ownership allowance ($1.09)/kVA."
+    },
+    {
+      "utility": "Eversource MA (NSTAR Electric Company)",
+      "rate": "G-2",
+      "rate_name": "Medium General Service - South Shore, Cape Cod & Martha's Vineyard (SOUTH/CAPE)",
+      "service_area": "EMA - South Shore / Cape & Vineyard (legacy Commonwealth Electric)",
+      "effective_date": "2026-09-01",
+      "source_url": "https://www.eversource.com/docs/default-source/rates-tariffs/ma-electric/1-tariff-ma.pdf",
+      "source_doc": "M.D.P.U. No. 1-26-F (effective Sept 1, 2026)",
+      "page": "Page 2 of 7",
+      "rate_schedule_doc": "M.D.P.U. No. 30H, effective Jan 1, 2025. https://www.eversource.com/docs/default-source/rates-tariffs/ma-electric/30-tariff-ma.pdf",
+      "customer_charge_usd_month": 370.0,
+      "demand_charges": [
+        {"name": "Distribution demand", "usd_per_kva": 3.72, "applies_to": "Billing demand in kVA", "source_quote": "SOUTH/CAPE Demand (kVA) $3.72 $3.72 $13.74 $17.46"},
+        {"name": "Transmission demand", "usd_per_kva": 13.74, "applies_to": "Same billing demand (kVA)", "source_quote": "SOUTH/CAPE Demand (kVA) $3.72 $3.72 $13.74 $17.46"},
+        {"name": "Total demand", "usd_per_kva": 17.46, "applies_to": "Billing demand (kVA)", "source_quote": "$17.46"}
+      ],
+      "energy_charges_cents_per_kwh": {"all_kwh_SOUTH": 5.418, "all_kwh_CAPE": 6.961, "notes": "CAPE differs only in the Cape Light Compact EE reconciling factor (0.02682 vs 0.01139)."},
+      "peak_hours": "Peak Load Period: EDT 9:00 a.m.-6:00 p.m. weekdays; EST 4:00 p.m.-9:00 p.m. weekdays.",
+      "billing_demand_definition": "Tariff 30H: highest 15-minute kVA during the Peak Load Period, not less than 36% of the maximum 15-minute kVA in any period of the billing month.",
+      "interval_minutes": 15,
+      "ratchet": "No multi-month ratchet. Same-month 36% floor.",
+      "power_factor": "Billed in kVA.",
+      "eligibility": "Demand in excess of an average of 100 kW but not greater than an average of 500 kW for 12 consecutive months.",
+      "notes": "Transformer ownership allowance ($1.09)/kVA at >= 13,200 V."
+    },
+    {
+      "utility": "Eversource MA (NSTAR Electric Company)",
+      "rate": "G-2",
+      "rate_name": "Medium General Service - Western Massachusetts (WMA)",
+      "service_area": "WMA (legacy WMECO)",
+      "effective_date": "2026-09-01",
+      "source_url": "https://www.eversource.com/docs/default-source/rates-tariffs/ma-electric/1-tariff-ma.pdf",
+      "source_doc": "M.D.P.U. No. 1-26-F (effective Sept 1, 2026)",
+      "page": "Page 2 of 7",
+      "rate_schedule_doc": "M.D.P.U. No. 40H, effective Jan 1, 2025. https://www.eversource.com/docs/default-source/rates-tariffs/ma-electric/40-tariff-ma.pdf",
+      "customer_charge_usd_month": 110.0,
+      "demand_charges": [
+        {"name": "Distribution demand", "usd_per_kw": 11.3, "applies_to": "Highest 30-min kW in the month (all hours)", "source_quote": "Demand $11.30 $11.30 $13.74 $25.04"},
+        {"name": "Transmission demand", "usd_per_kw": 13.74, "applies_to": "Same billing demand", "source_quote": "Demand $11.30 $11.30 $13.74 $25.04"},
+        {"name": "Total demand", "usd_per_kw": 25.04, "applies_to": "Billing demand", "source_quote": "$25.04"}
+      ],
+      "energy_charges_cents_per_kwh": {"all_kwh": 4.068, "notes": "Base distribution 0.00215 plus the same reconciling components as the other G-2 rates."},
+      "peak_hours": "Not applicable. Demand is measured over all hours.",
+      "billing_demand_definition": "Tariff 40H: 'the highest 30-minute kilowatt registration during the month determined to the nearest one-half kW.'",
+      "interval_minutes": 30,
+      "ratchet": "None stated.",
+      "power_factor": "Tariff: if PF < 90% lagging, the Company may require correction or correct it at the customer's cost. No billing adjustment.",
+      "eligibility": "WMA, service greater than 100 kW but not exceeding 349 kW.",
+      "notes": "Optional TOU variant T-4 (M.D.P.U. 41) has the same $11.30 + $13.74 demand. Transformer ownership credit ($1.09)/kW."
+    },
+    {
+      "utility": "Eversource MA (NSTAR Electric Company)",
+      "rate": "G-3",
+      "rate_name": "Large General Service - Greater Boston (BOST)",
+      "service_area": "EMA - Greater Boston",
+      "effective_date": "2026-09-01",
+      "source_url": "https://www.eversource.com/docs/default-source/rates-tariffs/ma-electric/1-tariff-ma.pdf",
+      "source_doc": "M.D.P.U. No. 1-26-F (effective Sept 1, 2026)",
+      "page": "Page 2 of 7",
+      "rate_schedule_doc": "M.D.P.U. No. 13I, effective Jan 1, 2025. https://www.eversource.com/docs/default-source/rates-tariffs/ma-electric/13-tariff-ma.pdf",
+      "customer_charge_usd_month": 370.0,
+      "demand_charges": [
+        {"name": "Distribution demand", "usd_per_kw": 15.97, "applies_to": "Billing demand (see definition)", "source_quote": "Demand (kW) $15.97 $15.97 $14.08 $30.05", "last_changed": "2026-04-01"},
+        {"name": "Transmission demand", "usd_per_kw": 14.08, "applies_to": "Same billing demand", "source_quote": "Demand (kW) $15.97 $15.97 $14.08 $30.05", "last_changed": "2026-01-01"},
+        {"name": "Total demand", "usd_per_kw": 30.05, "applies_to": "Billing demand", "source_quote": "$30.05"},
+        {"name": "OPTIONAL Coincident Peak transmission demand", "usd_per_kw": 22.39, "applies_to": "OPTIONAL, 12-month minimum. Customer's coincident 60-minute kW at the ISO-NE regional network monthly transmission system peak (legacy NSTAR system). Presumably replaces the $14.08 transmission demand charge.", "source_quote": "Coincident Peak Demand (kW) (Optional) $22.39 $22.39"}
+      ],
+      "energy_charges_cents_per_kwh": {"peak": 2.892, "off_peak": 2.892, "notes": "Peak and off-peak delivery are identical. Base distribution kWh 0.00000; reconciling 0.01085; RDAF (0.00015); SMART 0.00204; NMRS 0.00219; PSPF 0.00002; ESMP 0.00000; EVP 0.00035; transition (0.00077); transmission 0.00000; EE 0.01389; renewable 0.00050."},
+      "peak_hours": "June-September: 9 A.M.-6 P.M. weekdays; October-May: 8 A.M.-9 P.M. weekdays. Off-peak includes 12 MA holidays (New Year's, MLK, Presidents', Patriots', Memorial, Independence, Labor, Columbus, Veterans, Thanksgiving, Day after Thanksgiving, Christmas).",
+      "billing_demand_definition": "Tariff 13I: 'maximum fifteen-minute demand (either kilowatts or 90 percent of the kilovolt-amperes) ... during the monthly billing period, except any demand recorded during off-peak hours will be reduced by 70 percent.' Effective billing demand = max(peak-period max, 0.30 x off-peak max).",
+      "interval_minutes": 15,
+      "ratchet": "None.",
+      "power_factor": "Greater of kW and 90% of kVA.",
+      "eligibility": "Greater Boston, service supplied and metered at 14,000 V nominal or greater, with customer-owned protective devices and transformers. A typical secondary-voltage 250 kW-battery site in Boston would be on G-2, not G-3.",
+      "notes": "Service at 69 kV+ with customer-owned transformers is exempt from distribution demand and energy charges."
+    },
+    {
+      "utility": "Eversource MA (NSTAR Electric Company)",
+      "rate": "G-3",
+      "rate_name": "Large General Service - Cambridge (CAMB)",
+      "service_area": "EMA - Cambridge",
+      "effective_date": "2026-09-01",
+      "source_url": "https://www.eversource.com/docs/default-source/rates-tariffs/ma-electric/1-tariff-ma.pdf",
+      "source_doc": "M.D.P.U. No. 1-26-F (effective Sept 1, 2026)",
+      "page": "Page 2 of 7",
+      "rate_schedule_doc": "M.D.P.U. No. 21I, effective Jan 1, 2025. https://www.eversource.com/docs/default-source/rates-tariffs/ma-electric/21-tariff-ma.pdf",
+      "customer_charge_usd_month": 370.0,
+      "demand_charges": [
+        {"name": "Distribution demand", "usd_per_kva": 7.09, "applies_to": "Billing demand (kVA), both blocks", "source_quote": "Demand (<=100 kVA) $7.09 $7.09 $837.44 $844.53 / Demand ( > 100 kVA) $7.09 $7.09 $14.85 $21.94"},
+        {"name": "Transmission demand, first 100 kVA block", "usd": 837.44, "applies_to": "First <=100 kVA of billing demand. Unit not printed; appears to be a flat block charge (~$8.37/kVA if 100 kVA). UNVERIFIED.", "source_quote": "Demand (<=100 kVA) ... $837.44"},
+        {"name": "Transmission demand, > 100 kVA", "usd_per_kva": 14.85, "applies_to": "Billing demand above 100 kVA", "source_quote": "Demand ( > 100 kVA) $7.09 $7.09 $14.85 $21.94"},
+        {"name": "OPTIONAL Coincident Peak transmission demand", "usd_per_kw": 23.54, "applies_to": "Optional. Coincident 60-min kW at ISO-NE monthly peak, above 100 kW; first <=100 kW block shows $837.44", "source_quote": "Coincident Peak Demand (>100 kW) (Optional) $23.54 $23.54"}
+      ],
+      "energy_charges_cents_per_kwh": {"all_kwh": 3.018, "notes": "Base distribution 0.00126 + reconciling 0.01085 + other components."},
+      "peak_hours": "Peak Load Period: EDT 9:00 a.m.-6:00 p.m. weekdays; EST 4:00 p.m.-9:00 p.m. weekdays.",
+      "billing_demand_definition": "Tariff 21I: highest 15-minute kVA during the Peak Load Period, not less than 26% of the maximum 15-minute kVA in any period of the billing month.",
+      "interval_minutes": 15,
+      "ratchet": "No multi-month ratchet. Same-month 26% floor.",
+      "power_factor": "Billed in kVA.",
+      "eligibility": "Cambridge, metered load exceeds an average of 100 kW for 12 consecutive billing months, and service voltage is 13,800 V or higher.",
+      "notes": "Block structure needs confirmation; see open_questions."
+    },
+    {
+      "utility": "Eversource MA (NSTAR Electric Company)",
+      "rate": "G-3",
+      "rate_name": "Large General Service - South Shore, Cape Cod & Martha's Vineyard (SOUTH/CAPE)",
+      "service_area": "EMA - South Shore / Cape & Vineyard",
+      "effective_date": "2026-09-01",
+      "source_url": "https://www.eversource.com/docs/default-source/rates-tariffs/ma-electric/1-tariff-ma.pdf",
+      "source_doc": "M.D.P.U. No. 1-26-F (effective Sept 1, 2026)",
+      "page": "Page 2 of 7",
+      "rate_schedule_doc": "M.D.P.U. No. 31I, effective Jan 1, 2025. https://www.eversource.com/docs/default-source/rates-tariffs/ma-electric/31-tariff-ma.pdf",
+      "customer_charge_usd_month": 930.0,
+      "demand_charges": [
+        {"name": "Distribution demand", "usd_per_kva": 4.01, "applies_to": "Billing demand (kVA)", "source_quote": "SOUTH/CAPE Demand (kVA) $4.01 $4.01 $14.08 $18.09"},
+        {"name": "Transmission demand", "usd_per_kva": 14.08, "applies_to": "Same billing demand", "source_quote": "SOUTH/CAPE Demand (kVA) $4.01 $4.01 $14.08 $18.09"},
+        {"name": "Total demand", "usd_per_kva": 18.09, "applies_to": "Billing demand (kVA)", "source_quote": "$18.09"},
+        {"name": "OPTIONAL Coincident Peak transmission demand", "usd_per_kw": 22.39, "applies_to": "Optional, 12-month minimum. Coincident 60-min kW at the ISO-NE monthly transmission peak", "source_quote": "Coincident Peak Demand (kW) (Optional) $22.39 $22.39"}
+      ],
+      "energy_charges_cents_per_kwh": {"all_kwh_SOUTH": 3.926, "all_kwh_CAPE": 5.469, "notes": "Base distribution 0.01034 + reconciling 0.01085 + others. CAPE EE reconciling factor differs."},
+      "peak_hours": "Peak Load Period: EDT 9:00 a.m.-6:00 p.m. weekdays; EST 4:00 p.m.-9:00 p.m. weekdays.",
+      "billing_demand_definition": "Tariff 31I: highest 15-minute kVA during the Peak Load Period, not less than 35% of the maximum 15-minute kVA in any period of the billing month.",
+      "interval_minutes": 15,
+      "ratchet": "No multi-month ratchet. Same-month 35% floor.",
+      "power_factor": "Billed in kVA.",
+      "eligibility": "Demands in excess of an average of 500 kW for 12 consecutive months (secondary voltage service).",
+      "notes": ""
+    },
+    {
+      "utility": "Eversource MA (NSTAR Electric Company)",
+      "rate": "G-3",
+      "rate_name": "Large General Service - Western Massachusetts (WMA)",
+      "service_area": "WMA",
+      "effective_date": "2026-09-01",
+      "source_url": "https://www.eversource.com/docs/default-source/rates-tariffs/ma-electric/1-tariff-ma.pdf",
+      "source_doc": "M.D.P.U. No. 1-26-F (effective Sept 1, 2026)",
+      "page": "Page 2 of 7",
+      "rate_schedule_doc": "M.D.P.U. No. 42I, effective Jan 1, 2025. https://www.eversource.com/docs/default-source/rates-tariffs/ma-electric/42-tariff-ma.pdf",
+      "customer_charge_usd_month": {"350<=kW<1000": 760.0, "1000<=kW<1500": 1625.0, "1500<=kW<2500": 2700.0, "basis": "customer's two highest maximum-demand months in the most recent 12 months (on- or off-peak); one month over a higher threshold by >= 5% also triggers the higher tier"},
+      "demand_charges": [
+        {"name": "Distribution demand", "usd_per_kw": 10.49, "applies_to": "Highest 30-min kW during On-Peak hours (weekdays 12 noon-8 p.m. EST)", "source_quote": "Demand (kW) $10.49 $10.49 $14.08 $24.57"},
+        {"name": "Transmission demand", "usd_per_kw": 14.08, "applies_to": "Same billing demand", "source_quote": "Demand (kW) $10.49 $10.49 $14.08 $24.57"},
+        {"name": "Total demand", "usd_per_kw": 24.57, "applies_to": "Billing demand", "source_quote": "$24.57"},
+        {"name": "OPTIONAL Coincident Peak transmission demand", "usd_per_kw": 22.39, "applies_to": "Optional, 12-month minimum. Coincident 60-min kW at the ISO-NE monthly peak (legacy Northeast Utilities system)", "source_quote": "Coincident Peak Demand (kW) (Optional) $22.39 $22.39"}
+      ],
+      "energy_charges_cents_per_kwh": {"peak": 3.22, "off_peak": 3.01, "notes": "Peak base distribution 0.00328 / off-peak 0.00118, plus reconciling 0.01085 and other components."},
+      "peak_hours": "ON-PEAK: Weekdays from 12 Noon to 8 p.m., EST. OFF-PEAK: all other hours. (Tariff 42I; no holiday list found in the tariff text.)",
+      "billing_demand_definition": "Tariff 42I: 'the highest 30-minute kilowatt registration during the month in the On-Peak hours determined to the nearest one-half kW.'",
+      "interval_minutes": 30,
+      "ratchet": "No ratchet on the demand charge. The customer-charge tier is set by the two highest demand months in the trailing 12 months.",
+      "power_factor": "Tariff: PF < 90% lagging, correction required or Company corrects at customer cost. No billing adjustment.",
+      "eligibility": "Customers whose maximum demand equaled or exceeded 350 kW but less than 2,500 kW at any time in the most recent 12 months must take this rate.",
+      "notes": "T-5 Extra Large General Service (M.D.P.U. 43) exists for larger WMA customers (On Peak Demand $8.11 + $14.08). Not researched further."
+    }
+  ],
+  "basic_service": [
+    {
+      "utility": "National Grid MA",
+      "customer_group": "Industrial (G-2, G-3)",
+      "source_url": "https://www.nationalgridus.com/media/pdfs/billing-payments/tariffs/mae/meco_basic_service.pdf",
+      "source_doc": "M.D.P.U. No. 1-26-I, Sheet 5 of 5, Summary of Basic Service Rates, effective Oct 1, 2026 (rates last changed 8/1/26)",
+      "units": "$/kWh, Total Billed Basic Service Rate (base + admin cost adj. $0.00287)",
+      "period_2026_08_to_2026_10": {
+        "SEMA": {"fixed": 0.11024, "variable_aug": 0.1177, "variable_sep": 0.1042, "variable_oct": 0.10853},
+        "NEMA": {"fixed": 0.10709, "variable_aug": 0.11444, "variable_sep": 0.10164, "variable_oct": 0.10483},
+        "WCMA": {"fixed": 0.10852, "variable_aug": 0.11576, "variable_sep": 0.1018, "variable_oct": 0.10782}
+      },
+      "period_2026_05_to_2026_07": {
+        "source_doc": "M.D.P.U. 1-26-G Sheet 5 (https://www.nationalgridus.com/media/pdfs/billing-payments/electric-rates/ma/2026/0726meco.pdf)",
+        "SEMA": {"fixed": 0.12675, "variable_may": 0.10601, "variable_jun": 0.11933, "variable_jul": 0.15204},
+        "NEMA": {"fixed": 0.12168, "variable_may": 0.10521, "variable_jun": 0.11181, "variable_jul": 0.14541},
+        "WCMA": {"fixed": 0.12394, "variable_may": 0.10903, "variable_jun": 0.11629, "variable_jul": 0.14425}
+      },
+      "period_2026_02_to_2026_04": {
+        "source_doc": "M.D.P.U. 1-26-E Sheet 5 (https://www.nationalgridus.com/media/pdfs/billing-payments/electric-rates/ma/2026/0426meco.pdf)",
+        "SEMA": {"fixed": 0.17412, "variable_feb": 0.17412, "variable_mar": 0.17412, "variable_apr": 0.17412},
+        "NEMA": {"fixed": 0.16925, "variable_feb": 0.16925, "variable_mar": 0.16925, "variable_apr": 0.16925},
+        "WCMA": {"fixed": 0.17125, "variable_feb": 0.20334, "variable_mar": 0.16034, "variable_apr": 0.14865},
+        "note": "As printed, the document shows identical fixed and variable values for SEMA/NEMA in Feb-Apr 2026."
+      },
+      "period_2025_11_to_2026_01": {
+        "source_doc": "M.D.P.U. 1-26-A Sheet 5 (https://www.nationalgridus.com/media/pdfs/billing-payments/electric-rates/ma/2026/0126meco.pdf)",
+        "SEMA": {"fixed": 0.1743, "variable_nov": 0.13112, "variable_dec": 0.17342, "variable_jan": 0.21471},
+        "NEMA": {"fixed": 0.17258, "variable_nov": 0.13136, "variable_dec": 0.17105, "variable_jan": 0.21181},
+        "WCMA": {"fixed": 0.1713, "variable_nov": 0.12269, "variable_dec": 0.17009, "variable_jan": 0.21701}
+      },
+      "notes": "Basic Service is flat per kWh (no TOU) for industrial customers, so it gives no intraday arbitrage spread. Nov 2026-Jan 2027 industrial prices were not yet published in 1-26-I."
+    },
+    {
+      "utility": "Eversource MA (NSTAR Electric)",
+      "customer_group": "Medium and Large General Service (G-2, G-3, etc.)",
+      "source_url": "https://www.eversource.com/docs/default-source/rates-tariffs/ma-electric/1-tariff-ma.pdf",
+      "source_doc": "M.D.P.U. No. 1-26-F, Page 6 of 7, Part C - Basic Service Rates (effective Sept 1, 2026; Medium/Large rows last changed 11/1/26)",
+      "units": "$/kWh, all hours",
+      "monthly": {
+        "EMA_NEMA_fixed":    {"2026-01": 0.18127, "2026-02": 0.17893, "2026-03": 0.17893, "2026-04": 0.17893, "2026-05": 0.12541, "2026-06": 0.12541, "2026-07": 0.12541, "2026-08": 0.12031, "2026-09": 0.12031, "2026-10": 0.12031, "2026-11": 0.2219, "2026-12": 0.2219, "2027-01": 0.2219},
+        "EMA_NEMA_variable": {"2026-01": 0.22076, "2026-02": 0.22516, "2026-03": 0.16099, "2026-04": 0.13754, "2026-05": 0.10691, "2026-06": 0.11358, "2026-07": 0.1498, "2026-08": 0.12703, "2026-09": 0.11217, "2026-10": 0.12062, "2026-11": 0.13698, "2026-12": 0.22, "2027-01": 0.28634},
+        "EMA_SEMA_fixed":    {"2026-01": 0.18037, "2026-02": 0.1629, "2026-03": 0.1629, "2026-04": 0.1629, "2026-05": 0.11825, "2026-06": 0.11825, "2026-07": 0.11825, "2026-08": 0.11578, "2026-09": 0.11578, "2026-10": 0.11578, "2026-11": 0.22228, "2026-12": 0.22228, "2027-01": 0.22228},
+        "EMA_SEMA_variable": {"2026-01": 0.22038, "2026-02": 0.21099, "2026-03": 0.14068, "2026-04": 0.12443, "2026-05": 0.09822, "2026-06": 0.10631, "2026-07": 0.14388, "2026-08": 0.12354, "2026-09": 0.10696, "2026-10": 0.11547, "2026-11": 0.14118, "2026-12": 0.22253, "2027-01": 0.28222},
+        "WMA_WCMA_fixed":    {"2026-01": 0.16382, "2026-02": 0.1463, "2026-03": 0.1463, "2026-04": 0.1463, "2026-05": 0.11169, "2026-06": 0.11169, "2026-07": 0.11169, "2026-08": 0.1183, "2026-09": 0.1183, "2026-10": 0.1183, "2026-11": 0.20706, "2026-12": 0.20706, "2027-01": 0.20706},
+        "WMA_WCMA_variable": {"2026-01": 0.21127, "2026-02": 0.1894, "2026-03": 0.13153, "2026-04": 0.11916, "2026-05": 0.09506, "2026-06": 0.10592, "2026-07": 0.13602, "2026-08": 0.12881, "2026-09": 0.11208, "2026-10": 0.11421, "2026-11": 0.12504, "2026-12": 0.22754, "2027-01": 0.28942}
+      },
+      "notes": "Footnote in source: Jan 2026 includes Basic Service Cost Adjustment of $0.00127/kWh; Feb-Jul 2026 includes $0.00691/kWh. Flat per kWh (no TOU). Zone mapping (BOST/CAMB -> NEMA, SOUTH/CAPE -> SEMA) is not stated in the document; see open_questions."
+    }
+  ],
+  "connected_solutions": {
+    "program": "Mass Save ConnectedSolutions - C&I Active Demand Reduction (Targeted Dispatch / Daily Dispatch). Program Administrators: Cape Light Compact, Eversource, National Grid, Unitil.",
+    "official_documents": [
+      {"name": "Offering Materials - ConnectedSolutions for C&I Customers (dated 6/08/2023)", "url": "https://www.masssave.com/-/media/Files/PDFs/Business/CI-ConnectedSolutions-Offering-Materials_June-2023.pdf", "local_copy": "sources/masssave_CI_ConnectedSolutions_Offering_Materials_June-2023.pdf", "status": "Still linked as the current 'Commercial ConnectedSolutions Offering Materials' on masssave.com, National Grid and Eversource pages as of 2026-10-08. No 2025-2027 version was found."},
+      {"name": "National Grid MA-Business ConnectedSolutions page", "url": "https://www.nationalgridus.com/MA-Business/Energy-Saving-Programs/ConnectedSolutions", "local_copy": "sources/web_snapshots/ngrid_MA-Business_ConnectedSolutions_2026-10-08.html"},
+      {"name": "Eversource Business Demand Response (EMA) page", "url": "https://www.eversource.com/business/save-money-energy/energy-efficiency-programs/demand-response/ema", "local_copy": "sources/web_snapshots/eversource_business_demand-response_ema_2026-10-08.html"},
+      {"name": "Eversource ConnectedSolutions+ Pilot page", "url": "https://www.eversource.com/business/save-money-energy/energy-efficiency-programs/demand-response/connectedsolutionsplus", "local_copy": "sources/web_snapshots/eversource_business_connectedsolutionsplus_2026-10-08.html"},
+      {"name": "Eversource Demand Response Event Calendar (2025 season)", "url": "https://www.eversource.com/business/save-money-energy/energy-efficiency-programs/demand-response/demand-response-events-calendar", "local_copy": "sources/web_snapshots/eversource_business_demand-response-events-calendar_2026-10-08.html"}
+    ],
+    "incentives_current": {
+      "daily_dispatch": {
+        "usd_per_kw_summer": 200,
+        "usd_per_kw_winter": null,
+        "sources": "NGrid page: 'Daily Dispatch (Battery)* ... $200/kW'; Eversource EMA page: 'Daily curtailment participants can earn a $200 incentive per average kW reduction per season'; Mass Save 2023 offering materials: '$200/kW-Summer'.",
+        "battery_rate_lock": "5 years for new battery storage enrolled in Daily Dispatch, plus an optional 2-year incentive-lock commitment letter for new batteries > 50 kW-AC (Offering Materials pp. 8-9)."
+      },
+      "targeted_dispatch": {
+        "usd_per_kw_summer": 45,
+        "weekend_bonus_usd_per_kw": 10,
+        "usd_per_kw_winter": null,
+        "sources": "NGrid page: 'Targeted Dispatch ... $45/kW'; Eversource EMA page: '$45 incentive per average kW reduction per season, as well as a $10 kW bonus averaged across all weekend events'.",
+        "discrepancy": "The June 2023 Mass Save offering materials PDF still says '$35/kW-Summer +10/kW-Summer Weekend Bonus'. Current PA web pages say $45."
+      },
+      "winter": "No C&I winter dispatch option appears in the current official C&I offering materials or on the current NGrid/Eversource C&I pages. Both list summer (June-September) only. Set to null.",
+      "small_scale_batteries_ngrid": {"usd_per_kw_summer": 275, "applicability": "National Grid lists this for '<50kW battery storage systems'. Not applicable to a 250 kW system."},
+      "eversource_connectedsolutions_plus_pilot": {
+        "applicability": "Only select Eversource neighborhoods. Greater Boston: Alewife, Dorchester, Mattapan, West Roxbury, Milton. SE MA: Freetown, Lakeville, New Bedford, Dartmouth, Acushnet.",
+        "greater_boston_daily_battery_usd_per_kw": 250,
+        "greater_boston_daily_battery_max_events": 60,
+        "greater_boston_targeted_curtailment_usd_per_kw_up_to": 80,
+        "greater_boston_event_window": "June 1-September 30, between 2 p.m. and 10 p.m.",
+        "se_ma_daily_battery_summer_usd_per_kw": 275,
+        "se_ma_daily_battery_spring_fall_usd_per_kw": 100,
+        "se_ma_notes": "Spring = Apr-May, Fall = Oct-Nov. Up to 150 events per season. Events 11 a.m.-3 p.m. ('solar soaking'). Rates guaranteed at least 4 seasons."
+      }
+    },
+    "season_months": "June 1 - September 30 (summer). Daily Dispatch events are mostly in July and August; June/September events are called only if the annual system peak is forecast then.",
+    "event_window": "Between 3 p.m. and 8 p.m. (Mass Save 2023 offering materials, both options; Eversource EMA page: 'called between 3 p.m. and 8 p.m.'). The NGrid page does not state the window. The older 2022 NGrid materials said 2-7 pm.",
+    "event_duration_hours": {"targeted": 3, "daily": "2 to 3"},
+    "events_per_season": {
+      "targeted": "1-8 (Mass Save 2023 doc); 2-8 (NGrid page); 3-8 (Eversource page)",
+      "daily": "30-60; PAs 'plan to call approximately 40 events per season but will not call more than 60' (Offering Materials p.10)",
+      "observed_2025_eversource": {"daily": 42, "daily_2hr": 25, "daily_3hr": 17, "targeted": 6, "source": "Eversource Demand Response Event Calendar (lists 2025 dates)"}
+    },
+    "notification": "Day-ahead (Offering Materials: '1pm the day before the event'; Eversource: 24 hours).",
+    "weekends_holidays": "Daily Dispatch: any day, including holidays. Targeted: generally weekdays, weekend events rare and paid a +$10/kW bonus; never on July 4, Juneteenth, or Labor Day.",
+    "performance_measurement": "Pay-for-performance: incentive = $/kW x AVERAGE kW performance across ALL events in the season (non-participation counts as 0, negative events count against the average, season average floored at 0). Targeted and non-battery resources: 'last 10-of-10' baseline (same-day adjustment for Targeted only, upward only). Battery resources in Daily Dispatch: 'calculated without either a baseline or a same-day adjustment', using utility meter data or asset-level interval data (customer/CSP choice). Eversource requires real-time interval data, with batteries measured at the asset level (up to $1,500/meter incentive). NGrid uses the utility interval meter (all G-3 have one).",
+    "incentive_cap": "Exporting sites are capped at 150% of the site's annual peak load (excluding battery and BTM PV effects) for BTM batteries without an executed ISA as of June 8, 2023. For G-3, site peak is based on 15-minute peaks in event windows (3-8 pm Mon-Fri).",
+    "eligibility": "Active MA C&I electric account with NGrid, Eversource, Unitil (or Cape Light Compact) that pays the energy efficiency charge. Behind-the-meter only. Fossil generation cannot count.",
+    "payment_timing": "After the summer ends, before the end of the calendar year. Paid to the CSP or customer.",
+    "plan_period_note": "Values are those currently published by the PAs (2026). A 2025-2027 Three-Year Plan document with approved C&I ADR incentive levels, or any 2027 values, could not be located or verified."
+  },
+  "open_questions": [
+    "NGrid G-3 Optional TCP: tariffs M.D.P.U. 1591 and 1592 say the TCP per-kW charge is 'in lieu of a per kWh charge', but Summary 1-26-I still prints the $0.03455/kWh transmission column (totals $0.06661/$0.06388) in the TCP rows. The TCP-option kWh totals in this file (3.206/2.933 c/kWh) are COMPUTED by removing the $0.03455; confirm with National Grid.",
+    "NGrid M.D.P.U. 1-26-H (expected effective Aug 1, 2026) was not retrieved. It is not linked on the Service-Rates index, and the index labels are offset by one letter vs. the PDFs. It is superseded by 1-26-I (Oct 1, 2026), which is used here. Sheet 4 of 1-26-I shows one distribution factor last changed 8/1/26.",
+    "Eversource optional Coincident Peak demand ($22.39/kW BOST/SOUTH/WMA; $23.54/kW CAMB >100 kW): that it REPLACES the standard transmission demand charge ($14.08) is inferred from the summary layout (both in the Transmission column) and the tariff wording ('may elect to be billed on the customer's demand at the time of the ISO New England ... peak'). Not stated explicitly.",
+    "Eversource G-2/G-3 transmission $/kW: that it applies to the same billing demand as distribution is inferred from its placement on the same 'Demand' line in M.D.P.U. 1-26-F. Transmission Service Cost Adjustment M.D.P.U. 48A does not define the billing determinant.",
+    "Eversource CAMB G-3: the '$837.44' on the '<=100 kVA' demand line (and '<=100 kW' CP line) has no printed unit. It may be a flat monthly charge for the first 100 kVA block. Unverified.",
+    "Eversource Jan-Mar 2026 G-2/G-3 distribution demand values were not retrieved. The base distribution column 'Last change' is 4/1/26, so Jan-Mar 2026 values may differ. Transmission demand last changed 1/1/26. Eversource says delivery rates next change Jan 1, 2027.",
+    "Eversource WMA G-3 on-peak window is stated as '12 Noon to 8 p.m., EST'. It is unclear whether this is clock (prevailing) time, and no holiday exclusion was found in tariff 42I.",
+    "Eversource Basic Service: the document lists zones NEMA/SEMA/WCMA but does not map service areas to zones. Assigning BOST/CAMB to NEMA and SOUTH/CAPE to SEMA is an assumption; verify by site address.",
+    "Eversource 1-26-F (PDF created Aug 26, 2026) already lists Medium/Large Basic Service for Nov 2026-Jan 2027 (last change 11/1/26). Reported as printed.",
+    "ConnectedSolutions: the only official C&I offering-materials PDF is dated June 2023 (Targeted $35/kW). Current PA web pages show Targeted $45/kW and Daily $200/kW. No DPU-approved 2025-2027 C&I ADR incentive table was located, 2027 values are unverified, and no C&I winter option was found (winter values null).",
+    "ConnectedSolutions event window: the Mass Save doc and Eversource EMA page say 3-8 pm. The Eversource calendar page says '3:00 a.m. and 8:00 p.m.' (likely a typo). NGrid's page does not state a window.",
+    "Rate eligibility vs. a 250 kW battery site: on National Grid, a site averaging > 200 kW is on G-3, otherwise G-2. On Eversource the class depends on service area: BOST G-3 requires >= 14 kV primary metering, SOUTH/CAPE G-3 requires > 500 kW average, WMA G-3 is 350-2,500 kW. Confirm each site's actual rate code from its bill."
+  ]
+}
